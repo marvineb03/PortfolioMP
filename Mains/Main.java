@@ -8,6 +8,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
+    //tet
     private static final ArrayList<Akteur> akteure = new ArrayList<>(); //ArrayList aller vorhandenen Akteure
 
     /**
