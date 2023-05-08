@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Main {
 
+    //testtt
     //tet
     private static final ArrayList<Akteur> akteure = new ArrayList<>(); //ArrayList aller vorhandenen Akteure
 
