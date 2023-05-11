@@ -8,8 +8,8 @@ import java.util.ArrayList;
  * @see Thread
  *
  * Diese Klasse extenden die Klasse Thread und bildet die Basis aller Akteure.
- *
- */
+ * tester marv
+ */ 
 public class Akteur extends Thread {
     private double geld; //Geld des Akteurs
     private final String anzeigeName; //Anzeigename des Akteurs
