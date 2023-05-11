@@ -100,7 +100,9 @@ public class Main {
             for (Akteur akteur : akteure) {
 
                     akteur.run();//sollte start sein , geht aber nicht
-
+                // invoke start() over same object otherwise
+                // will throw java.lang.IllegalThreadStateException.
+                // zu beheben
 
 
             }
