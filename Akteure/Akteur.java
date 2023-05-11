@@ -45,7 +45,7 @@ public class Akteur extends Thread {
      *
      * Bestandserweiterung eines Verbrauchguts.
      */
-    public void addBestand(VerbrauchsGut verbrauchsGut, int anzahl) {
+    public synchronized void addBestand(VerbrauchsGut verbrauchsGut, int anzahl) {
 
         for (int i = 0; i < anzahl; i++) {
            this.bestand.add(verbrauchsGut);
@@ -60,13 +60,13 @@ public class Akteur extends Thread {
      *
      * Bestandsminderung eines Verbrauchguts.
      */
-    public void removeBestand(VerbrauchsGut verbrauchsGut, int anzahl) {
+    public synchronized void removeBestand(VerbrauchsGut verbrauchsGut, int anzahl) {
         //Prüfung, ob VerbrauchsGut im Bestand ist.
-        if(hasBestand(verbrauchsGut)) {
+       // if(hasBestand(verbrauchsGut)) {
             //Bestandsminderung
             //int neuerBestand = this.bestand.size() - anzahl;
-            this.bestand.remove(verbrauchsGut);
-        }
+         //   this.bestand.remove(verbrauchsGut);
+      //  }
 
         for ( int i = 0 ; i < this.bestand.size(); i++){
             if(anzahl == 0  || !this.bestand.contains(verbrauchsGut)){
@@ -98,7 +98,7 @@ public class Akteur extends Thread {
      *
      * Rückgabe Anzahl Bestand eines Verbrauchguts
      */
-    public int getVGBestand(VerbrauchsGut verbrauchsGut) {
+    public synchronized int getVGBestand(VerbrauchsGut verbrauchsGut) {
         int count = 0;
         for(VerbrauchsGut gut : this.bestand){
             if(gut == verbrauchsGut){
@@ -159,7 +159,7 @@ public class Akteur extends Thread {
      *
      * Rückgabe HashMap<VerbrauchsGut, Integer> bestand
      */
-    public ArrayList<VerbrauchsGut> getBestand() {
+    public synchronized  ArrayList<VerbrauchsGut> getBestand() {
 
         return this.bestand;
     }

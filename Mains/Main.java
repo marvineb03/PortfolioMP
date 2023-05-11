@@ -97,9 +97,13 @@ public class Main {
             Logger.print("\n-------------- ZEITEINHEIT " + finalzeitEinheit + " --------------\n");
             //For-Schleife, welche alle Threads aller Akteure runned.
             for (Akteur akteur : akteure) {
-                akteur.start();//sollte start sein , geht aber nicht
+
+                    akteur.run();//sollte start sein , geht aber nicht
+
+
 
             }
+
         }
 
         System.out.println("\n\n[EREIGNIS] Die Simulation wird beendet.");

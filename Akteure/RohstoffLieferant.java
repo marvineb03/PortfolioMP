@@ -56,7 +56,7 @@ public class RohstoffLieferant extends Akteur {
     /**
      * Methode, welche nach Anfragen am Markplatz sucht, um diese zu beantworten.
      */
-    public void anfrageBeantworten() {
+    public synchronized void anfrageBeantworten() {
         //For-Schleife, welche das Set<VerbrauchsGut> (Keys) der Bestands-Hashmap durchläuft (Rohstoffe).
         for(int i = 0 ; i < super.bestand.size(); i++){
             VerbrauchsGut rohstoff = super.bestand.get(i);
@@ -98,7 +98,7 @@ public class RohstoffLieferant extends Akteur {
      *
      * Produktion der übergebenen Rohstoffe.
      */
-    private void produzieren(ArrayList<Rohstoff> rohstoffe) {
+    private synchronized void produzieren(ArrayList<Rohstoff> rohstoffe) {
         //For-Schleife, welche die ArrayList<Rohstoff> rohstoffe durchläuft.
         for(Rohstoff rohstoff : rohstoffe) {
             //Zufälliges Produktionsvolumen von 5-10

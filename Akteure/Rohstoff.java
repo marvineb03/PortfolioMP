@@ -39,7 +39,7 @@ public enum Rohstoff implements VerbrauchsGut {
      * Rückgabe des Akteur Attributes akteuer.
      */
     @Override
-    public String getAnzeigeName() {
+    public synchronized String getAnzeigeName() {
         return anzeigeName;
     }
 

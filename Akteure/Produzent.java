@@ -86,7 +86,7 @@ public class Produzent extends Akteur {
        // Logger.printBestand(this);
     }
 
-    private boolean isProduktionMoeglich(Konsumgut konsumgut) {
+    private synchronized boolean isProduktionMoeglich(Konsumgut konsumgut) {
         boolean success = true;
 
         //Prüfung des Bestandes jedes einzelnen Rohstoffverbrauch von konsumgut.
@@ -108,7 +108,7 @@ public class Produzent extends Akteur {
         return success;
     }
 
-    private void buildAnfrage(Konsumgut konsumgut) {
+    private synchronized void buildAnfrage(Konsumgut konsumgut) {
         //Prüfung des Bestandes jedes einzelnen Rohstoffverbrauch von konsumgut.
         for(RohstoffVerbrauch rohstoffVerbrauch : konsumgut.getRohstoffVerbrauch()) {
 
@@ -150,7 +150,7 @@ public class Produzent extends Akteur {
      *
      * Prüfung, ob bereits eine Anfrage des entsprechenden VerbrauchsGut in ArrayList anfrageToGo vorliegt.
      */
-    private RohstoffAnfrage findAnfrageDuplikate(VerbrauchsGut verbrauchsGut) {
+    private synchronized RohstoffAnfrage findAnfrageDuplikate(VerbrauchsGut verbrauchsGut) {
         //Objekt Anfrage ist grundsätzlich null. Null-State bleibt, falls keine Anfrage gefunden wird.
         RohstoffAnfrage result = null;
 
@@ -174,7 +174,7 @@ public class Produzent extends Akteur {
      *
      * Prüfung, ob bereits eine zum VerbrauchsGut entsprechende Anfrage am Marktplatz vorliegt.
      */
-    private boolean existMartkplatzAnfrage(VerbrauchsGut verbrauchsGut) {
+    private synchronized boolean existMartkplatzAnfrage(VerbrauchsGut verbrauchsGut) {
         //ArrayList mit Anfragen, welche von diesem Akteur am Marktplatz gestellt wurden.
         ArrayList<RohstoffAnfrage> anfragenByAkteur = Marktplatz.getInstance().getAnfragenByAkteur(this);
 
@@ -191,7 +191,7 @@ public class Produzent extends Akteur {
     /**
      * Übergabe der Anfragen der ArrayList anfragenToGo an Marktplatz
      */
-    private void sendAnfragen() {
+    private synchronized void sendAnfragen() {
         //For-Schleife, welche jedes Objekt der ArrayList anfragenToGo durchgeht.
         for(RohstoffAnfrage anfrage : this.anfragenToGo) {
             //Übergabe jeder Anfrage an Marktplatz.
