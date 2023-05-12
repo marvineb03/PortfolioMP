@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+//Test
 public class Main {
 
     private static final ArrayList<Akteur> akteure = new ArrayList<>(); //ArrayList aller vorhandenen Akteure
